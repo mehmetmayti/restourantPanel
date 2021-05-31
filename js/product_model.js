@@ -10,10 +10,10 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-var donerList=[];
-var kebapList=[];
-var firinList=[];
-var mesrubatList=[];
+let donerList=[];
+let kebapList=[];
+let firinList=[];
+let mesrubatList=[];
 
 
 const db=firebase.firestore();
@@ -25,7 +25,7 @@ const mesrubatTable=document.getElementById('myListProductsMesrubat');
 
 function setTableItems(list,table) {
 
-list.forEach(function(item){
+  list.forEach(function(item){
   var tr=`
   <tr>
       <td><img src="${item.imageUrl}" style="height: 50px; width: 50px;"></td>
@@ -37,10 +37,9 @@ list.forEach(function(item){
       <td></td>
   </tr>
   `;
-  table.innerHTML+=tr;
-  return table;
+  table.innerHTML+=tr; 
 });
-
+return donerTable;
 }
 
 
@@ -57,7 +56,7 @@ await db.collection('products').onSnapshot(function(querySnapshot){
     donerList.push(e);
   });
 })
-donerTable= setTableItems(donerList,donerTable);
+donerTable+= setTableItems(donerList,donerTable);
 }
 
 async function getFirins() {
