@@ -39,7 +39,7 @@ function setTableItems(list,table) {
   `;
   table.innerHTML+=tr; 
 });
-return donerTable;
+
 }
 
 
@@ -56,7 +56,7 @@ await db.collection('products').onSnapshot(function(querySnapshot){
     donerList.push(e);
   });
 })
-donerTable+= setTableItems(donerList,donerTable);
+setTableItems(donerList,donerTable);
 }
 
 async function getFirins() {
